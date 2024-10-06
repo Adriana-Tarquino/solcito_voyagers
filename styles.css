@@ -11,7 +11,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
+    padding: 20px;
 }
 
 .container {
@@ -30,11 +31,49 @@ h1 {
     color: #333;
 }
 
-.figma-frame {
+.iframe-container {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* Mantén la proporción 16:9 */
+    overflow: hidden;
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 10px;
+}
+
+.figma-frame {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    max-width: 800px;
-    height: 450px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    height: 100%;
+    border: 0;
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .container {
+        padding: 10px;
+        box-shadow: none;
+    }
+
+    .iframe-container {
+        padding-top: 75%; /* Proporción de pantalla más alta para móviles */
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.25rem;
+    }
+
+    .container {
+        padding: 5px;
+    }
+
+    .iframe-container {
+        padding-top: 100%; /* Proporción 1:1 para pantallas de celular más pequeñas */
+    }
 }
